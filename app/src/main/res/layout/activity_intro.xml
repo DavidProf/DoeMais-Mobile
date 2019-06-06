@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_azul"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/slideViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-50dp"></android.support.v4.view.ViewPager>
+
+
+    <LinearLayout
+        android:id="@+id/dots_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"></LinearLayout>
+
+    <Button
+        android:id="@+id/btnAnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="25dp"
+        android:background="@android:color/transparent"
+        android:text="Anterior"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/btnProx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="25dp"
+        android:background="@android:color/transparent"
+        android:text="Proximo"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btnComecar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="25dp"
+        android:background="@android:color/transparent"
+        android:enabled="false"
+        android:text="Começar"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
+</RelativeLayout>

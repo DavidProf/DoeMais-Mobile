@@ -1,0 +1,6 @@
+cores Doe Mais
+
+Vermelho #FFF76E6E
+Bege     #FFDAC6B6
+Azul1    #FF3B55BC
+Azul2    #FF81A3C7

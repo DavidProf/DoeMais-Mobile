@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorFundo"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtDoacoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/numeros_background1"
+        android:padding="15dp"
+        android:text="000"
+        android:textSize="40sp"
+        android:elevation="5dp"
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="70dp"/>
+
+    <TextView
+        android:id="@+id/txtItens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/numeros_background2"
+        android:padding="15dp"
+        android:text="000"
+        android:layout_gravity="center"
+        android:textSize="40sp"
+        android:elevation="5dp"
+        android:layout_marginTop="-85dp"
+        android:layout_marginLeft="80dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/container_background"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:layout_marginHorizontal="11dp"
+        android:layout_gravity="center"
+        android:elevation="5dp"
+        android:layout_marginBottom="60dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doações Pendentes"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/multicolore"
+            android:padding="8dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/titulo_background"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvPendente"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/lista_pendencia" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/penDetalhes"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/container_background"
+    android:orientation="vertical"
+    android:elevation="5dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/detalhe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/titulo_verde"
+            android:elevation="5dp"
+            android:fontFamily="@font/multicolore"
+            android:padding="5dp"
+            android:text="Detalhes"
+            android:textColor="@color/colorWhite"
+            android:textSize="22sp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/detInstituicao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/timeless"
+                android:text="Instituição"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detCodigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:fontFamily="@font/timeless"
+                android:text="Codigo"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow>
+
+
+
+                <TextView
+
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/colorDoeMaisAzul1"
+                    android:fontFamily="@font/timeless"
+                    android:text="Item"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/colorDoeMaisAzul1"
+                    android:fontFamily="@font/timeless"
+                    android:text="Quantidade"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow>
+
+
+                <TextView
+                    android:id="@+id/detItem"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/azulCeu"
+                    android:fontFamily="@font/timeless"
+                    android:text="Item"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/detQtd"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/azulCeu"
+                    android:fontFamily="@font/timeless"
+                    android:text="Qtd"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+</LinearLayout>

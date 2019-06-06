@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFundo"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".RecuperarActivity">
+
+    <include layout="@layout/toolbar_doemais" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_weight="1"
+        android:background="@drawable/titulo_verm"
+        android:elevation="5dp"
+        android:fontFamily="@font/multicolore"
+        android:gravity="center"
+        android:text="Recuperar Senha"
+        android:textColor="@color/colorWhite"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/container_background"
+        android:elevation="5dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/timeless"
+            android:text="Digite seu E-mail:"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@android:drawable/sym_action_email"
+                android:hint="exemplo@exemplo.com"
+                android:inputType="textEmailAddress"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/botao_azul"
+                android:text="Ok"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+
+
+        <!--Layout invisivel-->
+
+        <LinearLayout
+            android:id="@+id/layoutSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/timeless"
+                android:text="Digite uma senha:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@android:drawable/ic_lock_lock"
+                android:hint="**********                     "
+                android:inputType="textPassword"
+                android:maxLength="10"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@android:drawable/ic_lock_lock"
+                    android:hint="**********                     "
+                    android:inputType="textPassword"
+                    android:maxLength="10"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/botao_azul"
+                    android:text="Enviar"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

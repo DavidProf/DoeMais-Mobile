@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="28dp"
+    android:elevation="4dp"
+    android:id="@+id/listaDoa"
+    >
+
+    <TextView
+        android:id="@+id/txtInstituicao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Instituição"
+        android:fontFamily="@font/timeless"
+        android:textStyle="bold"
+        android:layout_marginRight="60dp"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/txtDataRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data Registro"
+        android:textSize="11sp"
+        android:fontFamily="@font/timeless"
+        android:layout_below="@+id/txtInstituicao"
+        android:layout_marginTop="6dp"/>
+
+    <TextView
+        android:id="@+id/txtCodigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Numº"
+        android:textSize="11sp"
+        android:fontFamily="@font/timeless"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="80dp"
+        android:layout_below="@+id/txtInstituicao"
+        android:layout_toRightOf="@+id/txtDataRegistro"/>
+
+    <ImageView
+        android:id="@+id/verMais"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_sucesso"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="20dp" />
+</RelativeLayout>
