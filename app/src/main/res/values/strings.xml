@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">DoeMais</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recover"><a href="http://www.google.com">Clique aqui para recuprar sua senha</a></string>
 </resources>

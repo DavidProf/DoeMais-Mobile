@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.doemais.doemais.RecyclerView.adapter.PendenciaAdapter;
 import com.example.doemais.doemais.R;
@@ -106,6 +107,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ArrayList<Doacao>> call, Throwable t) {
+                Toast.makeText(HomeFragment.this.getContext(), "Erro: verifique sua conexão", Toast.LENGTH_SHORT).show();
 
             }
         });

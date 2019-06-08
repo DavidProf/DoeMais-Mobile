@@ -4,6 +4,7 @@ import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 public class RecuperarActivity extends AppCompatActivity {
 
+    TextView textView;
     Toolbar toolbar;
     TextView toolbarTitulo;
     Button toolbarSair;
@@ -24,15 +26,13 @@ public class RecuperarActivity extends AppCompatActivity {
         toolbarTitulo = (TextView) findViewById(R.id.toolbarTitulo);
         toolbarSair = (Button) findViewById(R.id.toolbarSair);
         toolbarSair.setVisibility(View.INVISIBLE);
+        textView = findViewById(R.id.recoverlink);
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
 
         //Habilitar toolbar
         Configuration configuration = getResources().getConfiguration();
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
-
-
-
-
 
     }
 }

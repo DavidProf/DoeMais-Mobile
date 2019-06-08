@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.doemais.doemais.WEBService.Service.APIService;
 import com.example.doemais.doemais.WEBService.Service.RestClient;
 import com.example.doemais.doemais.WEBService.model.Login;
+import com.example.doemais.doemais.fragments.DoacaoFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -159,7 +160,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Login> call, Throwable t) {
-                Toast.makeText(LoginActivity.this, "Falha ao conectar ao banco", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Erro: verifique sua conexão", Toast.LENGTH_SHORT).show();
             }
         });
     }

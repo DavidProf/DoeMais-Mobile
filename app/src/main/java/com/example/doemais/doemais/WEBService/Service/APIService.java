@@ -1,6 +1,7 @@
 package com.example.doemais.doemais.WEBService.Service;
 
 import com.example.doemais.doemais.WEBService.model.Doacao;
+import com.example.doemais.doemais.WEBService.model.Doador;
 import com.example.doemais.doemais.WEBService.model.ItemModel;
 import com.example.doemais.doemais.WEBService.model.Login;
 import com.example.doemais.doemais.WEBService.model.Mensagem;
@@ -35,4 +36,7 @@ public interface APIService {
 
     @GET("doador/doacao/doadas")
     Call<ArrayList<Doacao>> getDoacoes(@Query("email") String email, @Query("senha") String senha);
+
+    @GET("Doador")
+    Call<Doador> getDoadorDados(@Query("email") String email, @Query("senha") String senha);
 }

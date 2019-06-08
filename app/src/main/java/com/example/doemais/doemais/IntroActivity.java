@@ -41,7 +41,6 @@ public class IntroActivity extends AppCompatActivity {
         mSlideViewPager.setAdapter(sliderAdapter);
 
 
-
         addDotsIndicator(0);
 
         mSlideViewPager.addOnPageChangeListener(viewListener);
@@ -163,35 +162,17 @@ public class IntroActivity extends AppCompatActivity {
         finish();
     }
 
-
-
-
     //Salvar primeira entrada no app
     public void salvarPreferencias() {
         SharedPreferences preferences = getSharedPreferences("user_preferences", MODE_PRIVATE);
-
 
         if (preferences.contains("iniciado")) {
             pagLogin();
         } else {
             appIniciado(preferences);
-           // mostrarIntro();
+            // mostrarIntro();
         }
     }
-
-
-    //Usar com splash screen
-   /* private void mostrarIntro() {
-
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pagLogin();
-            }
-        }, 2000);
-
-    }*/
 
     private void appIniciado(SharedPreferences preferences) {
         SharedPreferences.Editor editor = preferences.edit();

@@ -33,7 +33,7 @@ public class SliderAdapter extends PagerAdapter {
             "Ola, Seja Bem Vindo",
             "Veja suas doações",
             "Avalie o Atendimento",
-            "Titulo 4",
+            "Pronto?",
     };
 
     //Lista de Descrição
@@ -41,7 +41,7 @@ public class SliderAdapter extends PagerAdapter {
             "Tenha o controle de suas doações na palma da mão.",
             "Consulte o historico de suas doações pendentes e ja concluidas.",
             "Avalie o atendimento recebido ao efetuar a doação e ajude a compartilhar a reputação das instituições.",
-            "Titulo 4",
+            "Vamos lá",
     };
 
     //Lista de Backgrounds

@@ -104,7 +104,8 @@
         android:textColor="@color/colorDoeMaisAzul2"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
-        android:elevation="5dp"/>
+        android:elevation="5dp"
+        android:visibility="invisible"/>
 
 
 </LinearLayout>

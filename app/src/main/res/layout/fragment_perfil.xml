@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFundo"
-    android:layout_marginBottom="60dp">
+    android:layout_marginBottom="60dp"
+    android:background="@color/colorFundo">
 
 
     <LinearLayout
@@ -40,8 +40,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Nome:"
                 android:fontFamily="@font/timeless"
+                android:text="Nome:"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -82,8 +82,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Sexo:"
                     android:fontFamily="@font/timeless"
+                    android:text="Sexo:"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -91,8 +91,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="110dp"
-                    android:text="CPF:"
                     android:fontFamily="@font/timeless"
+                    android:text="CPF:"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -115,6 +115,7 @@
 
 
                 <EditText
+                    android:id="@+id/cpf"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -161,8 +162,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="CEP:"
                     android:fontFamily="@font/timeless"
+                    android:text="CEP:"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -170,8 +171,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="90dp"
-                    android:text="Logradouro:"
                     android:fontFamily="@font/timeless"
+                    android:text="Logradouro:"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -215,8 +216,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Nº:"
                     android:fontFamily="@font/timeless"
+                    android:text="Nº:"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -224,8 +225,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
-                    android:text="Complemento:"
                     android:fontFamily="@font/timeless"
+                    android:text="Complemento:"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -270,8 +271,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Bairro:"
                     android:fontFamily="@font/timeless"
+                    android:text="Bairro:"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -280,8 +281,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="70dp"
-                    android:text="Cidade:"
                     android:fontFamily="@font/timeless"
+                    android:text="Cidade:"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -372,8 +373,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
-                    android:text="Telefone2:"
                     android:fontFamily="@font/timeless"
+                    android:text="Telefone2:"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -410,8 +411,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="E-mail:"
                 android:fontFamily="@font/timeless"
+                android:text="E-mail:"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
