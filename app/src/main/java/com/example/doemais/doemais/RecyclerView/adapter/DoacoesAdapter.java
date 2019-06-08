@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+import com.example.doemais.doemais.MainActivity;
 import com.example.doemais.doemais.R;
 import com.example.doemais.doemais.RecyclerView.modelo.Doacoes;
 
@@ -44,12 +45,8 @@ public class DoacoesAdapter extends RecyclerView.Adapter<DoacoesAdapter.ViewHold
         holderDoacao.listaDoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView detInstit = (TextView) dDialog.findViewById(R.id.histInstituicao);
-                TextView detCod = (TextView) dDialog.findViewById(R.id.histCodigo);
-                detInstit.setText(dadosDoacao.get(holderDoacao.getAdapterPosition()).getDoaInstituicao());
-                detCod.setText(dadosDoacao.get(holderDoacao.getAdapterPosition()).getDoaCodigo());
-
-                dDialog.show();
+                String cod = holderDoacao.txtCodigo.getText().toString();
+                ((MainActivity)v.getContext()).detalhesDoacao(cod);
             }
         });
 

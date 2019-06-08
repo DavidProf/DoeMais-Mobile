@@ -9,13 +9,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
+import com.example.doemais.doemais.RecyclerView.adapter.ItensDoacaoFragment;
 import com.example.doemais.doemais.fragments.DoacaoFragment;
 import com.example.doemais.doemais.fragments.HomeFragment;
 import com.example.doemais.doemais.fragments.MensagemFragment;
@@ -112,10 +112,16 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
     //
-    public void detalhesDoacao(){
+    public void detalhesDoacao(String code){
+        //
+        int cod = Integer.parseInt(code);
+        //
+        Bundle bundle = new Bundle();
+        bundle.putInt("cod",cod);
+        itensDoacaoFragment.setArguments(bundle);
+        //
         toolbarTitulo.setText("Detalhes");
         toolbarSair.setVisibility(View.INVISIBLE);
         setFragment(itensDoacaoFragment);
-
     }
 }

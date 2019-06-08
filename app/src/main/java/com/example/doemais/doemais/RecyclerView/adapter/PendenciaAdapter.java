@@ -36,17 +36,13 @@ public class PendenciaAdapter extends RecyclerView.Adapter<PendenciaAdapter.View
         View view = LayoutInflater.from(pContext).inflate(R.layout.lista_pendencia, viewGroup, false);
         final ViewHolderPendencia holderPendencia = new ViewHolderPendencia(view);
 
-        //Dialog
-        pDialog = new Dialog(pContext);
-        pDialog.setContentView(R.layout.detalhe_pendencia);
-
-/**/
         final ArrayList<Item> itens = new ArrayList<>();
         /**/
         holderPendencia.listaPend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity)v.getContext()).detalhesDoacao();
+                String cod = holderPendencia.txtCodigo.getText().toString();
+                ((MainActivity)v.getContext()).detalhesDoacao(cod);
             }
         });
         return holderPendencia;

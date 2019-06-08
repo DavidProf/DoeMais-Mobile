@@ -58,9 +58,9 @@ public class MensagemAdapter extends RecyclerView.Adapter<MensagemAdapter.ViewHo
 
         public ViewHolderMensagem(@NonNull View itemView) {
             super(itemView);
-            msgInstituicao = (TextView) itemView.findViewById(R.id.msgIntituicao);
-            msgData = (TextView) itemView.findViewById(R.id.msgData);
-            msgCodigo = (TextView) itemView.findViewById(R.id.msgCodigo);
+            msgInstituicao = itemView.findViewById(R.id.msgIntituicao);
+            msgData = itemView.findViewById(R.id.msgData);
+            msgCodigo = itemView.findViewById(R.id.msgCodigo);
 
         }
     }

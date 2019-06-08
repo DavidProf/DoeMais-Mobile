@@ -1,6 +1,7 @@
 package com.example.doemais.doemais.fragments;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,8 +15,17 @@ import android.view.ViewGroup;
 import com.example.doemais.doemais.RecyclerView.adapter.DoacoesAdapter;
 import com.example.doemais.doemais.R;
 import com.example.doemais.doemais.RecyclerView.modelo.Doacoes;
+import com.example.doemais.doemais.WEBService.Service.APIService;
+import com.example.doemais.doemais.WEBService.Service.RestClient;
+import com.example.doemais.doemais.WEBService.model.Doacao;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -23,30 +33,20 @@ import java.util.ArrayList;
  */
 public class DoacaoFragment extends Fragment {
 
+    private RecyclerView recyclerView;
+    private ArrayList<Doacoes> alDoacoes;
+    private APIService apiService;
 
     public DoacaoFragment() {
         // Required empty public constructor
     }
 
-
-    private RecyclerView recyclerView;
-    private ArrayList<Doacoes> alDoacoes;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflar a activity com o fragment
         View view1 = inflater.inflate(R.layout.fragment_doacao, container, false);
-
-
         //Instanciar, Definir modelo, e adicionar dados do adapter ao RecyclerView
-        recyclerView = (RecyclerView) view1.findViewById(R.id.rvDoacoes) ;
-        DoacoesAdapter doacoesAdapter = new DoacoesAdapter(getContext(), alDoacoes);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(doacoesAdapter);
-
-        recyclerView.addItemDecoration(new DividerItemDecoration(this.getContext(), DividerItemDecoration.VERTICAL));
-
-
+        recyclerView = (RecyclerView) view1.findViewById(R.id.rvDoacoes);
         return view1;
 
     }
@@ -55,15 +55,39 @@ public class DoacaoFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Adicionar informações na lista.. Obs: Sem necessidade caso use um BD
-        alDoacoes = new ArrayList<>();
+    }
 
-        alDoacoes.add(new Doacoes("AACD","18/08/2000","1"));
-        alDoacoes.add(new Doacoes("AACD","18/08/2000","1"));
-        alDoacoes.add(new Doacoes("AACD","18/08/2000","1"));
-        alDoacoes.add(new Doacoes("AACD","18/08/2000","1"));
-        alDoacoes.add(new Doacoes("AACD","18/08/2000","1"));
+    @Override
+    public void onResume() {
+        super.onResume();
+        //
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("login_preferences", MODE_PRIVATE);
+        String email = preferences.getString("email", "null");
+        String senha = preferences.getString("senha", "null");
+        //
+        setDoacoesLista(email, senha);
+    }
 
+    private void setDoacoesLista(String email, String senha) {
+        apiService = RestClient.getSource();
+        apiService.getDoacoes(email, senha).enqueue(new Callback<ArrayList<Doacao>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Doacao>> call, Response<ArrayList<Doacao>> response) {
+                ArrayList<Doacao> doacoes = new ArrayList<>();
+                doacoes.addAll(response.body());
+                alDoacoes = new ArrayList<>();
+                for (Doacao doacao : doacoes) {
+                    alDoacoes.add(new Doacoes(doacao.getInstituicao(), doacao.getDataDoada(), doacao.getCod()));
+                }
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                recyclerView.setAdapter(new DoacoesAdapter(getContext(), alDoacoes));
+                recyclerView.addItemDecoration(new DividerItemDecoration(DoacaoFragment.this.getContext(), DividerItemDecoration.VERTICAL));
+            }
 
+            @Override
+            public void onFailure(Call<ArrayList<Doacao>> call, Throwable t) {
+
+            }
+        });
     }
 }
