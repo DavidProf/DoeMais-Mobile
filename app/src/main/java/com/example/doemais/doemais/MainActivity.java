@@ -1,5 +1,7 @@
 package com.example.doemais.doemais;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     final DoacaoFragment doacaoFragment = new DoacaoFragment();
     final MensagemFragment mensFragment = new MensagemFragment();
     final PerfilFragment perfilFragment = new PerfilFragment();
-    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+    final ItensDoacaoFragment itensDoacaoFragment = new ItensDoacaoFragment();
 
     Toolbar toolbar;
     TextView toolbarTitulo;
@@ -40,6 +42,18 @@ public class MainActivity extends AppCompatActivity {
         toolbarTitulo = (TextView) findViewById(R.id.toolbarTitulo);
         toolbarSair = (Button) findViewById(R.id.toolbarSair);
         toolbarSair.setVisibility(View.INVISIBLE);
+        toolbarSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences("login_preferences", MODE_PRIVATE);
+                SharedPreferences.Editor edit = preferences.edit();
+                edit.clear();
+                edit.commit();
+
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
 
         //Habilitar toolbar
         Configuration configuration = getResources().getConfiguration();
@@ -96,5 +110,12 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+    //
+    public void detalhesDoacao(){
+        toolbarTitulo.setText("Detalhes");
+        toolbarSair.setVisibility(View.INVISIBLE);
+        setFragment(itensDoacaoFragment);
+
     }
 }

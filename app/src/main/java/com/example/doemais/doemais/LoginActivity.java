@@ -1,6 +1,7 @@
 package com.example.doemais.doemais;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -26,6 +27,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
+    //
     APIService apiService;
     //Views
     Toolbar toolbar;
@@ -47,6 +49,13 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        SharedPreferences preferences = getSharedPreferences("login_preferences", MODE_PRIVATE);
+
+        if (preferences.contains("login")) {
+            pagHome();
+            return;
+        }
         //views
         edtEmail = (EditText) findViewById(R.id.edtEmail);
         edtSenha = (EditText) findViewById(R.id.edtSenha);
@@ -79,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         logar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validaCampos())
+                if (validaCampos())
                     logar();
             }
         });
@@ -124,8 +133,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void logar() {
-        String email = edtEmail.getText().toString();
-        String senha = edtSenha.getText().toString();
+        final String email = edtEmail.getText().toString();
+        final String senha = edtSenha.getText().toString();
 
         apiService = RestClient.getSource();
         apiService.doLogin(email, senha).enqueue(new Callback<Login>() {
@@ -134,14 +143,23 @@ public class LoginActivity extends AppCompatActivity {
                 Login lg;
                 lg = response.body();
                 if (lg.getSucesso()) {
+                    //Salvando email e senha
+                    SharedPreferences preferences = getSharedPreferences("login_preferences", MODE_PRIVATE);
+                    SharedPreferences.Editor edit = preferences.edit();
+                    edit.putString("email", email);
+                    edit.putString("senha", senha);
+                    edit.putBoolean("login", true);
+                    edit.commit();
+
                     pagHome();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Emal/Senha inválidos!", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Login> call, Throwable t) {
-                Toast.makeText(LoginActivity.this, "Falha ao conectar ao banco"+t, Toast.LENGTH_SHORT).show();
-                Log.i("ERRORR","ee:"+t);
+                Toast.makeText(LoginActivity.this, "Falha ao conectar ao banco", Toast.LENGTH_SHORT).show();
             }
         });
     }

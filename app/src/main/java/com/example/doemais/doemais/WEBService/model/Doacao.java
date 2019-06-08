@@ -16,7 +16,7 @@ public class Doacao {
     private String dataDoada;
     @SerializedName("DataParaDoar")
     @Expose
-    private Object dataParaDoar;
+    private String dataParaDoar;
     @SerializedName("DataParaRetirada")
     @Expose
     private String dataParaRetirada;
@@ -45,11 +45,11 @@ public class Doacao {
         this.dataDoada = dataDoada;
     }
 
-    public Object getDataParaDoar() {
+    public String getDataParaDoar() {
         return dataParaDoar;
     }
 
-    public void setDataParaDoar(Object dataParaDoar) {
+    public void setDataParaDoar(String dataParaDoar) {
         this.dataParaDoar = dataParaDoar;
     }
 

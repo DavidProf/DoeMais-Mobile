@@ -62,8 +62,6 @@
 
             <TableRow>
 
-
-
                 <TextView
 
                     android:layout_width="150dp"

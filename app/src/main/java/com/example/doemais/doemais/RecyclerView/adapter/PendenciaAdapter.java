@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.doemais.doemais.MainActivity;
 import com.example.doemais.doemais.R;
+import com.example.doemais.doemais.RecyclerView.modelo.Item;
 import com.example.doemais.doemais.RecyclerView.modelo.Pendencias;
 
 import java.util.ArrayList;
@@ -28,7 +30,7 @@ public class PendenciaAdapter extends RecyclerView.Adapter<PendenciaAdapter.View
 
     @NonNull
     @Override
-    public PendenciaAdapter.ViewHolderPendencia onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public PendenciaAdapter.ViewHolderPendencia onCreateViewHolder(@NonNull final ViewGroup viewGroup, int i) {
 
 
         View view = LayoutInflater.from(pContext).inflate(R.layout.lista_pendencia, viewGroup, false);
@@ -38,16 +40,13 @@ public class PendenciaAdapter extends RecyclerView.Adapter<PendenciaAdapter.View
         pDialog = new Dialog(pContext);
         pDialog.setContentView(R.layout.detalhe_pendencia);
 
-
+/**/
+        final ArrayList<Item> itens = new ArrayList<>();
+        /**/
         holderPendencia.listaPend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView detInstit = (TextView) pDialog.findViewById(R.id.detInstituicao);
-                TextView detCod = (TextView) pDialog.findViewById(R.id.detCodigo);
-                detInstit.setText(dados.get(holderPendencia.getAdapterPosition()).getPenInstituicao());
-                detCod.setText(dados.get(holderPendencia.getAdapterPosition()).getPenCodigo());
-
-                pDialog.show();
+                ((MainActivity)v.getContext()).detalhesDoacao();
             }
         });
         return holderPendencia;
@@ -80,10 +79,10 @@ public class PendenciaAdapter extends RecyclerView.Adapter<PendenciaAdapter.View
         public ViewHolderPendencia(@NonNull View itemView) {
             super(itemView);
 
-            listaPend = (RelativeLayout) itemView.findViewById(R.id.lstPendencia);
-            txtInstituicao = (TextView) itemView.findViewById(R.id.txtInstituicao);
-            txtData = (TextView) itemView.findViewById(R.id.txtDataRegistro);
-            txtCodigo = (TextView) itemView.findViewById(R.id.txtCodigo);
+            listaPend =  itemView.findViewById(R.id.lstPendencia);
+            txtInstituicao = itemView.findViewById(R.id.txtInstituicao);
+            txtData = itemView.findViewById(R.id.txtDataRegistro);
+            txtCodigo = itemView.findViewById(R.id.txtCodigo);
         }
     }
 }
