@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface APIService {
@@ -39,4 +40,7 @@ public interface APIService {
 
     @GET("Doador")
     Call<Doador> getDoadorDados(@Query("email") String email, @Query("senha") String senha);
+//
+//    @POST("doador/mensagem")
+//    Call EnviarMensagem(@Query("email") String email, @Query("senha") String senha);
 }

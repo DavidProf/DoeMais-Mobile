@@ -23,11 +23,12 @@ import com.example.doemais.doemais.fragments.PerfilFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    final HomeFragment homeFragment = new HomeFragment();
-    final DoacaoFragment doacaoFragment = new DoacaoFragment();
-    final MensagemFragment mensFragment = new MensagemFragment();
-    final PerfilFragment perfilFragment = new PerfilFragment();
-    final ItensDoacaoFragment itensDoacaoFragment = new ItensDoacaoFragment();
+    HomeFragment homeFragment = new HomeFragment();
+    DoacaoFragment doacaoFragment = new DoacaoFragment();
+    MensagemFragment mensFragment = new MensagemFragment();
+    PerfilFragment perfilFragment = new PerfilFragment();
+    ItensDoacaoFragment itensDoacaoFragment = new ItensDoacaoFragment();
+    EnviarMensagemFragment EnviarMensagemFragment = new EnviarMensagemFragment();
 
     Toolbar toolbar;
     TextView toolbarTitulo;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.item_home: {
                         toolbarTitulo.setText("Home");
                         toolbarSair.setVisibility(View.INVISIBLE);
+                        homeFragment = new HomeFragment();
                         setFragment(homeFragment);
                         break;
                     }
@@ -126,5 +128,9 @@ public class MainActivity extends AppCompatActivity {
         toolbarTitulo.setText("Detalhes");
         toolbarSair.setVisibility(View.INVISIBLE);
         setFragment(itensDoacaoFragment);
+    }
+    //
+    public void enviarMensagem(){
+        setFragment(EnviarMensagemFragment);
     }
 }
