@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doemais.doemais.MainActivity;
 import com.example.doemais.doemais.R;
 import com.example.doemais.doemais.RecyclerView.modelo.Item;
 import com.example.doemais.doemais.WEBService.Service.APIService;
@@ -79,6 +80,14 @@ public class ItensDoacaoFragment extends Fragment {
             button_mensagem.setVisibility(View.VISIBLE);
             linearLayout_avaliar.setVisibility(View.VISIBLE);
         }
+
+        final int COD = cod;
+        button_mensagem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View e) {
+                ((MainActivity)e.getContext()).enviarMensagem(0, COD);
+            }
+        });
     }
 
     private void getItens(final int cod) {

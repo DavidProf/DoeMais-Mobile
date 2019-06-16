@@ -32,15 +32,19 @@ public interface APIService {
     @GET("doador/doacao/itens")
     Call<ArrayList<ItemModel>> getItens(@Query("cod") int cod);
 
-    @GET("doador/mensagem/lista")
-    Call<ArrayList<Mensagem>> getMensagensLista(@Query("email") String email, @Query("senha") String senha);
-
     @GET("doador/doacao/doadas")
     Call<ArrayList<Doacao>> getDoacoes(@Query("email") String email, @Query("senha") String senha);
 
     @GET("Doador")
     Call<Doador> getDoadorDados(@Query("email") String email, @Query("senha") String senha);
-//
-//    @POST("doador/mensagem")
-//    Call EnviarMensagem(@Query("email") String email, @Query("senha") String senha);
+
+    @GET("doador/mensagem/lista")
+    Call<ArrayList<Mensagem>> getMensagensLista(@Query("email") String email, @Query("senha") String senha);
+
+    @POST("doador/mensagem")
+    Call<Mensagem> EnviarMensagemPorIdDoacao(@Query("iddoacao") int iddoacao, @Query("email") String email, @Query("senha") String senha, @Query("texto") String texto);
+
+    @POST("doador/mensagem")
+    Call EnviarMensagemPorIdMensagem(@Query("idmensagem") int idmensagem, @Query("email") String email, @Query("senha") String senha, @Query("texto") String texto);
+
 }

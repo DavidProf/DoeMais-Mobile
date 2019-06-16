@@ -21,7 +21,6 @@ public class PendenciaAdapter extends RecyclerView.Adapter<PendenciaAdapter.View
 
     Context pContext;
     ArrayList<Pendencias> dados;
-    Dialog pDialog;
 
     public PendenciaAdapter(Context pContext, ArrayList<Pendencias> dados) {
         this.pContext = pContext;

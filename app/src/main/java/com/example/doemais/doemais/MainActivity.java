@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.example.doemais.doemais.RecyclerView.adapter.ItensDoacaoFragment;
 import com.example.doemais.doemais.fragments.DoacaoFragment;
+import com.example.doemais.doemais.fragments.EnviarMensagemFragment;
 import com.example.doemais.doemais.fragments.HomeFragment;
 import com.example.doemais.doemais.fragments.MensagemFragment;
 import com.example.doemais.doemais.fragments.PerfilFragment;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     MensagemFragment mensFragment = new MensagemFragment();
     PerfilFragment perfilFragment = new PerfilFragment();
     ItensDoacaoFragment itensDoacaoFragment = new ItensDoacaoFragment();
-    EnviarMensagemFragment EnviarMensagemFragment = new EnviarMensagemFragment();
+    com.example.doemais.doemais.fragments.EnviarMensagemFragment EnviarMensagemFragment = new EnviarMensagemFragment();
 
     Toolbar toolbar;
     TextView toolbarTitulo;
@@ -130,7 +131,17 @@ public class MainActivity extends AppCompatActivity {
         setFragment(itensDoacaoFragment);
     }
     //
-    public void enviarMensagem(){
+    public void enviarMensagem(int op, int cod){
+        Bundle bundle = new Bundle();
+        bundle.putInt("op", op);
+        bundle.putInt("cod",cod);
+        EnviarMensagemFragment.setArguments(bundle);
         setFragment(EnviarMensagemFragment);
+    }
+    //
+    public void callFragmentMensagem(){
+        toolbarTitulo.setText("Mensagens");
+        toolbarSair.setVisibility(View.INVISIBLE);
+        setFragment(mensFragment);
     }
 }
