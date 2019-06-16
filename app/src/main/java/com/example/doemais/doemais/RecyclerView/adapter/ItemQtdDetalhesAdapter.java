@@ -15,9 +15,11 @@ import java.util.ArrayList;
 public class ItemQtdDetalhesAdapter extends RecyclerView.Adapter<ItemQtdDetalhesAdapter.ViewHolder> {
 
     ArrayList<Item> itens;
+    int codDoacao = 0;
 
-    public ItemQtdDetalhesAdapter(ArrayList<Item> itens) {
+    public ItemQtdDetalhesAdapter(ArrayList<Item> itens, int codDoacao) {
         this.itens = itens;
+        this.codDoacao = codDoacao;
     }
 
     @NonNull
@@ -47,7 +49,6 @@ public class ItemQtdDetalhesAdapter extends RecyclerView.Adapter<ItemQtdDetalhes
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             textView_nome = itemView.findViewById(R.id.detItem);
             textView_qtd = itemView.findViewById(R.id.detQtd);
         }

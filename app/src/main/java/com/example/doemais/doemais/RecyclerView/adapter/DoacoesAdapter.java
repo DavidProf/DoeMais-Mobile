@@ -46,7 +46,8 @@ public class DoacoesAdapter extends RecyclerView.Adapter<DoacoesAdapter.ViewHold
             @Override
             public void onClick(View v) {
                 String cod = holderDoacao.txtCodigo.getText().toString();
-                ((MainActivity)v.getContext()).detalhesDoacao(cod);
+                String instituicao = holderDoacao.txtInstituicao.getText().toString();
+                ((MainActivity)v.getContext()).detalhesDoacao(cod, instituicao,1);
             }
         });
 

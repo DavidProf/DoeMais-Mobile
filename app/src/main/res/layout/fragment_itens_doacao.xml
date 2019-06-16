@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecyclerView.adapter.ItensDoacaoFragment"
-    android:background="@color/colorFundo">
+    android:background="@color/colorFundo"
+    tools:context=".RecyclerView.adapter.ItensDoacaoFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="80dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:paddingBottom="15dp"
-        android:background="@drawable/container_background">
+        android:background="@drawable/container_background"
+        android:orientation="vertical"
+        android:paddingBottom="15dp">
 
         <TextView
             android:id="@+id/detalhe"
@@ -101,9 +101,49 @@
             android:id="@+id/recycler_view_itens"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/detalhe_item_qtd" >
+            tools:listitem="@layout/detalhe_item_qtd">
 
         </android.support.v7.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/button_mensagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/botao_azul"
+            android:paddingHorizontal="20dp"
+            android:text="Enviar mensagem"
+            android:visibility="gone" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/linearLayout_avaliar"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:gravity="center"
+            android:visibility="gone">
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none"/>
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none"/>
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none"/>
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none"/>
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none"/>
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Barra de navegação
-    public void navigationBar(){
+    public void navigationBar() {
         BottomNavigationView navigationView = findViewById(R.id.nav_menu);
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         setFragment(mensFragment);
                         break;
                     }
-                    case R.id.item_perfil:{
+                    case R.id.item_perfil: {
                         toolbarTitulo.setText("Perfil");
                         toolbarSair.setVisibility(View.VISIBLE);
                         setFragment(perfilFragment);
@@ -105,19 +105,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setFragment (Fragment fragment){
+    private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
     //
-    public void detalhesDoacao(String code){
+    public void detalhesDoacao(String code, String instituicao, int opcao) {
         //
         int cod = Integer.parseInt(code);
         //
         Bundle bundle = new Bundle();
-        bundle.putInt("cod",cod);
+        bundle.putInt("cod", cod);
+        bundle.putString("inst", instituicao);
+        bundle.putInt("op",opcao);
         itensDoacaoFragment.setArguments(bundle);
         //
         toolbarTitulo.setText("Detalhes");

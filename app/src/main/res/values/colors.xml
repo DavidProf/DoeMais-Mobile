@@ -10,7 +10,7 @@
     <color name="colorDoeMaisVerm">#FFF76E6E</color>
     <color name="colorDoeMaisVerm2">#EE1A1A</color>
     <color name="colorDoeMaisBege">#FFDAC6B6</color>
-    <color name="colorFundo" >#DBDADA</color>
+    <color name="colorFundo" >#CFD4DA</color>
     <color name="colorVerde">#67F030</color>
     <color name="colorVerde2">#2EA302</color>
     <color name="transparentGray">#774B4949</color>
@@ -19,6 +19,7 @@
     <color name="azulForte1">#102370</color>
     <color name="azulForte2">#305480</color>
     <color name="azulCeu">#91BDF7</color>
+    <color name="colorStar">#FFDF15</color>
 
 
 </resources>

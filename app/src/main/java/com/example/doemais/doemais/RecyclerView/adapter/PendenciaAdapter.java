@@ -42,7 +42,8 @@ public class PendenciaAdapter extends RecyclerView.Adapter<PendenciaAdapter.View
             @Override
             public void onClick(View v) {
                 String cod = holderPendencia.txtCodigo.getText().toString();
-                ((MainActivity)v.getContext()).detalhesDoacao(cod);
+                String instituicao = holderPendencia.txtInstituicao.getText().toString();
+                ((MainActivity) v.getContext()).detalhesDoacao(cod, instituicao,0);
             }
         });
         return holderPendencia;
@@ -75,7 +76,7 @@ public class PendenciaAdapter extends RecyclerView.Adapter<PendenciaAdapter.View
         public ViewHolderPendencia(@NonNull View itemView) {
             super(itemView);
 
-            listaPend =  itemView.findViewById(R.id.lstPendencia);
+            listaPend = itemView.findViewById(R.id.lstPendencia);
             txtInstituicao = itemView.findViewById(R.id.txtInstituicao);
             txtData = itemView.findViewById(R.id.txtDataRegistro);
             txtCodigo = itemView.findViewById(R.id.txtCodigo);
