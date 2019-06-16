@@ -15,7 +15,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
-import com.example.doemais.doemais.RecyclerView.adapter.ItensDoacaoFragment;
+import com.example.doemais.doemais.fragments.ItensDoacaoFragment;
+import com.example.doemais.doemais.fragments.ConversaFragment;
 import com.example.doemais.doemais.fragments.DoacaoFragment;
 import com.example.doemais.doemais.fragments.EnviarMensagemFragment;
 import com.example.doemais.doemais.fragments.HomeFragment;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     PerfilFragment perfilFragment = new PerfilFragment();
     ItensDoacaoFragment itensDoacaoFragment = new ItensDoacaoFragment();
     com.example.doemais.doemais.fragments.EnviarMensagemFragment EnviarMensagemFragment = new EnviarMensagemFragment();
+    ConversaFragment conversaFragment = new ConversaFragment();
 
     Toolbar toolbar;
     TextView toolbarTitulo;
@@ -123,25 +125,35 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putInt("cod", cod);
         bundle.putString("inst", instituicao);
-        bundle.putInt("op",opcao);
+        bundle.putInt("op", opcao);
         itensDoacaoFragment.setArguments(bundle);
         //
         toolbarTitulo.setText("Detalhes");
         toolbarSair.setVisibility(View.INVISIBLE);
         setFragment(itensDoacaoFragment);
     }
+
     //
-    public void enviarMensagem(int op, int cod){
+    public void enviarMensagem(int op, int cod) {
         Bundle bundle = new Bundle();
         bundle.putInt("op", op);
-        bundle.putInt("cod",cod);
+        bundle.putInt("cod", cod);
         EnviarMensagemFragment.setArguments(bundle);
         setFragment(EnviarMensagemFragment);
     }
+
     //
-    public void callFragmentMensagem(){
+    public void callFragmentMensagem() {
         toolbarTitulo.setText("Mensagens");
         toolbarSair.setVisibility(View.INVISIBLE);
         setFragment(mensFragment);
+    }
+
+    //
+    public void callFragmentConversa(String idMensagem) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("cod", Integer.parseInt(idMensagem));
+        conversaFragment.setArguments(bundle);
+        setFragment(conversaFragment);
     }
 }

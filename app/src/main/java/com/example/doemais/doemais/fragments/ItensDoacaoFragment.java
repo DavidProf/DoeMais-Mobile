@@ -1,4 +1,4 @@
-package com.example.doemais.doemais.RecyclerView.adapter;
+package com.example.doemais.doemais.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.doemais.doemais.MainActivity;
 import com.example.doemais.doemais.R;
+import com.example.doemais.doemais.RecyclerView.adapter.ItemQtdDetalhesAdapter;
 import com.example.doemais.doemais.RecyclerView.modelo.Item;
 import com.example.doemais.doemais.WEBService.Service.APIService;
 import com.example.doemais.doemais.WEBService.Service.RestClient;

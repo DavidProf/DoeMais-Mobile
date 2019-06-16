@@ -6,8 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.doemais.doemais.MainActivity;
 import com.example.doemais.doemais.R;
 import com.example.doemais.doemais.RecyclerView.modelo.Mensagens;
 
@@ -28,7 +30,14 @@ public class MensagemAdapter extends RecyclerView.Adapter<MensagemAdapter.ViewHo
     public MensagemAdapter.ViewHolderMensagem onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         View view = LayoutInflater.from(mContext).inflate(R.layout.lista_mensagem, viewGroup, false);
-        ViewHolderMensagem holderMensagem = new ViewHolderMensagem(view);
+        final ViewHolderMensagem holderMensagem = new ViewHolderMensagem(view);
+
+        holderMensagem.relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)v.getContext()).callFragmentConversa(holderMensagem.msgCodigo.getText().toString());
+            }
+        });
 
         return holderMensagem;
     }
@@ -55,12 +64,14 @@ public class MensagemAdapter extends RecyclerView.Adapter<MensagemAdapter.ViewHo
         public TextView msgInstituicao;
         public TextView msgData;
         public TextView msgCodigo;
+        public RelativeLayout relativeLayout;
 
         public ViewHolderMensagem(@NonNull View itemView) {
             super(itemView);
             msgInstituicao = itemView.findViewById(R.id.msgIntituicao);
             msgData = itemView.findViewById(R.id.msgData);
             msgCodigo = itemView.findViewById(R.id.msgCodigo);
+            relativeLayout = itemView.findViewById(R.id.listaMensagem);
 
         }
     }

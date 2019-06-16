@@ -45,6 +45,8 @@ public interface APIService {
     Call<Mensagem> EnviarMensagemPorIdDoacao(@Query("iddoacao") int iddoacao, @Query("email") String email, @Query("senha") String senha, @Query("texto") String texto);
 
     @POST("doador/mensagem")
-    Call EnviarMensagemPorIdMensagem(@Query("idmensagem") int idmensagem, @Query("email") String email, @Query("senha") String senha, @Query("texto") String texto);
+    Call<Mensagem> EnviarMensagemPorIdMensagem(@Query("idmensagem") int idmensagem, @Query("email") String email, @Query("senha") String senha, @Query("texto") String texto);
 
+    @GET("doador/mensagem/conversa")
+    Call<ArrayList<Mensagem>> pegarConversa(@Query("idmensagem") int idmensagem, @Query("email") String email, @Query("senha") String senha);
 }
