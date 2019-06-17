@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
+import com.example.doemais.doemais.fragments.AvaliarFragment;
 import com.example.doemais.doemais.fragments.ItensDoacaoFragment;
 import com.example.doemais.doemais.fragments.ConversaFragment;
 import com.example.doemais.doemais.fragments.DoacaoFragment;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     ItensDoacaoFragment itensDoacaoFragment = new ItensDoacaoFragment();
     com.example.doemais.doemais.fragments.EnviarMensagemFragment EnviarMensagemFragment = new EnviarMensagemFragment();
     ConversaFragment conversaFragment = new ConversaFragment();
+    AvaliarFragment avaliarFragment = new AvaliarFragment();
 
     Toolbar toolbar;
     TextView toolbarTitulo;
@@ -155,5 +157,12 @@ public class MainActivity extends AppCompatActivity {
         bundle.putInt("cod", Integer.parseInt(idMensagem));
         conversaFragment.setArguments(bundle);
         setFragment(conversaFragment);
+    }
+    //
+    public void callFragmentAvaliar(int cod){
+        Bundle bundle = new Bundle();
+        bundle.putInt("cod",cod);
+        avaliarFragment.setArguments(bundle);
+        setFragment(avaliarFragment);
     }
 }

@@ -34,7 +34,7 @@ public class ItensDoacaoFragment extends Fragment {
     ArrayList<Item> itens;
     TextView textView_detCod;
     TextView textView_detInst;
-    LinearLayout linearLayout_avaliar;
+    Button button_avaliar;
     Button button_mensagem;
 
     public ItensDoacaoFragment() {
@@ -55,7 +55,7 @@ public class ItensDoacaoFragment extends Fragment {
         textView_detCod = view.findViewById(R.id.detCodigo);
         textView_detInst = view.findViewById(R.id.detInstituicao);
         button_mensagem = view.findViewById(R.id.button_mensagem);
-        linearLayout_avaliar = view.findViewById(R.id.linearLayout_avaliar);
+        button_avaliar = view.findViewById(R.id.linearLayout_avaliar);
         return view;
     }
 
@@ -79,7 +79,7 @@ public class ItensDoacaoFragment extends Fragment {
             button_mensagem.setVisibility(View.VISIBLE);
         }else if(op == 1){
             button_mensagem.setVisibility(View.VISIBLE);
-            linearLayout_avaliar.setVisibility(View.VISIBLE);
+            button_avaliar.setVisibility(View.VISIBLE);
         }
 
         final int COD = cod;
@@ -89,6 +89,14 @@ public class ItensDoacaoFragment extends Fragment {
                 ((MainActivity)e.getContext()).enviarMensagem(0, COD);
             }
         });
+
+        button_avaliar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)v.getContext()).callFragmentAvaliar(COD);
+            }
+        });
+
     }
 
     private void getItens(final int cod) {

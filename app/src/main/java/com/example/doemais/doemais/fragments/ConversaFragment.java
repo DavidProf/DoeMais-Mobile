@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.doemais.doemais.R;
 import com.example.doemais.doemais.WEBService.Service.APIService;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Converter;
 import retrofit2.Response;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -26,6 +29,7 @@ public class ConversaFragment extends Fragment {
 
     EditText editText_Conversa;
     TextView textView_Conversa;
+    Button button_enviar;
     APIService apiService;
 
     public ConversaFragment() {
@@ -35,9 +39,6 @@ public class ConversaFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
-        }
     }
 
     @Override
@@ -53,6 +54,7 @@ public class ConversaFragment extends Fragment {
         //
         editText_Conversa = getView().findViewById(R.id.editText_mensagem);
         textView_Conversa = getView().findViewById(R.id.textView_conversa);
+        button_enviar = getView().findViewById(R.id.button_enviar);
         //
         SharedPreferences preferences = this.getActivity().getSharedPreferences("login_preferences", MODE_PRIVATE);
         final String email = preferences.getString("email", "null");
@@ -65,18 +67,37 @@ public class ConversaFragment extends Fragment {
         final int COD = cod;
 
         pegarMensagens(COD, email, senha);
+
+        button_enviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                enviarMensagem(COD, email, senha,editText_Conversa.getText().toString());
+                editText_Conversa.setText("");
+            }
+        });
     }
 
     private void enviarMensagem(int cod, String email, String senha, String texto) {
 
         apiService = RestClient.getSource();
+        apiService.EnviarMensagemPorIdMensagem(cod, email, senha, texto).enqueue(new Callback<Mensagem>() {
+            @Override
+            public void onResponse(Call<Mensagem> call, Response<Mensagem> response) {
+                Toast.makeText(ConversaFragment.this.getContext(), "Enviada", Toast.LENGTH_SHORT).show();
+            }
 
-
+            @Override
+            public void onFailure(Call<Mensagem> call, Throwable t) {
+                Toast.makeText(ConversaFragment.this.getContext(), "Falha", Toast.LENGTH_SHORT).show();
+            }
+        });
         pegarMensagens(cod, email, senha);
     }
 
     private void pegarMensagens(int cod, String email, String senha) {
         apiService = RestClient.getSource();
+
+        textView_Conversa.setText("");
 
         apiService.pegarConversa(cod, email, senha).enqueue(new Callback<ArrayList<Mensagem>>() {
             @Override
@@ -86,7 +107,7 @@ public class ConversaFragment extends Fragment {
                 for (Mensagem m : mensagems) {
                     String mensagem =
                             (m.getFuncionario().trim().equals("") ? "Você" : m.getFuncionario()) + " " +
-                                    "(" + m.getData() + "):\n " +
+                                    "(" + m.getData() + "):\n" +
                                     m.getTexto() + "\n" + (m.getLida() ? "LIDA" : "") + "\n" +
                                     "---------------------";
                     textView_Conversa.setText(textView_Conversa.getText() + "\n" + mensagem);

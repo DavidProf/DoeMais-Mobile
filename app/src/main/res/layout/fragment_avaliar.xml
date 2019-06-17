@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFundo"
+    tools:context=".fragments.AvaliarFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="100dp"
+        android:background="@drawable/container_background"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atendimento do funcionário"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_atendimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="20dp">
+
+            <Button
+                android:id="@+id/button_atendimento1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_atendimento2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_atendimento3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_atendimento4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_atendimento5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+        </LinearLayout>
+<!---->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agilidade"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_agilidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="20dp">
+
+            <Button
+                android:id="@+id/button_agilidade1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_agilidade2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_agilidade3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_agilidade4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_agilidade5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+        </LinearLayout>
+<!---->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confiança"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_confianca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="20dp">
+
+            <Button
+                android:id="@+id/button_confianca1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_confianca2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_confianca3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_confianca4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_confianca5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+        </LinearLayout>
+<!---->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transparência"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_transparencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="20dp">
+
+            <Button
+                android:id="@+id/button_transparencia1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_transparencia2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_transparencia3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_transparencia4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_transparencia5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+        </LinearLayout>
+<!---->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cuidado"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_cuidado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="20dp">
+
+            <Button
+                android:id="@+id/button_cuidado1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_cuidado2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_cuidado3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_cuidado4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+
+            <Button
+                android:id="@+id/button_cuidado5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_star_none" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_avaliar"
+            android:background="@drawable/botao_azul"
+            android:layout_marginTop="15dp"
+            android:text="Enviar"/>
+    </LinearLayout>
+
+</FrameLayout>
