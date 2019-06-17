@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     ConversaFragment conversaFragment = new ConversaFragment();
     AvaliarFragment avaliarFragment = new AvaliarFragment();
 
-    Toolbar toolbar;
+    public Toolbar toolbar;
     TextView toolbarTitulo;
     Button toolbarSair;
 
@@ -68,13 +68,13 @@ public class MainActivity extends AppCompatActivity {
         toolbarTitulo.setText("Home");
         setFragment(homeFragment);
 
-        navigationBar();
+        navigationBar(0);
 
 
     }
 
     //Barra de navegação
-    public void navigationBar() {
+    public void navigationBar(int i) {
         BottomNavigationView navigationView = findViewById(R.id.nav_menu);
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -110,6 +110,12 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        if (i == 1) {
+            toolbarTitulo.setText("Home");
+            toolbarSair.setVisibility(View.INVISIBLE);
+            homeFragment = new HomeFragment();
+            setFragment(homeFragment);
+        }
     }
 
     private void setFragment(Fragment fragment) {
@@ -158,10 +164,11 @@ public class MainActivity extends AppCompatActivity {
         conversaFragment.setArguments(bundle);
         setFragment(conversaFragment);
     }
+
     //
-    public void callFragmentAvaliar(int cod){
+    public void callFragmentAvaliar(int cod) {
         Bundle bundle = new Bundle();
-        bundle.putInt("cod",cod);
+        bundle.putInt("cod", cod);
         avaliarFragment.setArguments(bundle);
         setFragment(avaliarFragment);
     }

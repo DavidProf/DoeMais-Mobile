@@ -88,6 +88,7 @@ public class EnviarMensagemFragment extends Fragment {
                 @Override
                 public void onResponse(Call call, Response response) {
                     Toast.makeText(EnviarMensagemFragment.this.getContext(), "Sucesso", Toast.LENGTH_SHORT).show();
+                    editText_mensagem.setText("");
                 }
 
                 @Override

@@ -10,10 +10,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.doemais.doemais.MainActivity;
 import com.example.doemais.doemais.R;
+import com.example.doemais.doemais.WEBService.Service.APIService;
+import com.example.doemais.doemais.WEBService.Service.RestClient;
+import com.example.doemais.doemais.WEBService.model.Avaliacao;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AvaliarFragment extends Fragment {
 
+    //
+    APIService apiService;
     //Atendimento
     Button button_atendimento1;
     Button button_atendimento2;
@@ -113,13 +123,28 @@ public class AvaliarFragment extends Fragment {
         setButtons(button_confianca1, button_confianca2, button_confianca3, button_confianca4, button_confianca5, 3);
         setButtons(button_transparencia1, button_transparencia2, button_transparencia3, button_transparencia4, button_transparencia5, 4);
         setButtons(button_cuidado1, button_cuidado2, button_cuidado3, button_cuidado4, button_cuidado5, 5);
-
+        getAvaliacao(cod);
+        final int COD = cod;
         button_avaliar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AvaliarFragment.this.getContext(),
-                        atendimento + "-" + agilidade + "-" + "-" + confianca + "-" + transparencia + "-" + cuidado,
-                        Toast.LENGTH_SHORT).show();
+                if (agilidade == 0 || atendimento == 0 || cuidado == 0 || confianca == 0 || transparencia == 0) {
+                    Toast.makeText(AvaliarFragment.this.getContext(), "É necessário dar nota em tudo.", Toast.LENGTH_SHORT).show();
+                } else {
+                    apiService = RestClient.getSource();
+                    apiService.enviarAvaliacao(atendimento, agilidade, confianca, transparencia, cuidado, COD).enqueue(new Callback<Avaliacao>() {
+                        @Override
+                        public void onResponse(Call<Avaliacao> call, Response<Avaliacao> response) {
+                            Toast.makeText(AvaliarFragment.this.getContext(), "Sucesso", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<Avaliacao> call, Throwable t) {
+
+                        }
+                    });
+                    ((MainActivity)v.getContext()).navigationBar(1);
+                }
             }
         });
     }
@@ -219,7 +244,7 @@ public class AvaliarFragment extends Fragment {
                 } else if (value == 3) {
                     confianca = 5;
                 } else if (value == 4) {
-                    transparencia = 1;
+                    transparencia = 5;
                 } else if (value == 5) {
                     cuidado = 5;
                 }
@@ -236,6 +261,42 @@ public class AvaliarFragment extends Fragment {
     }
 
     private void getAvaliacao(int iddoacao) {
+        apiService = RestClient.getSource();
+        apiService.pegarAvaliacao(iddoacao).enqueue(new Callback<Avaliacao>() {
+            @Override
+            public void onResponse(Call<Avaliacao> call, Response<Avaliacao> response) {
+                Avaliacao av = response.body();
+                if (av.getAgilidade() == 0 || av.getAtendimento() == 0 || av.getConfianca() == 0 || av.getCuidado() == 0 || av.getTransparencia() == 0) {
+                    button_avaliar.setText("Avaliar");
+                } else {
+                    button_avaliar.setText("Reavaliar");
+                    doClick(button_atendimento1, button_atendimento2, button_atendimento3, button_atendimento4, button_atendimento5, av.getAtendimento());
+                    doClick(button_agilidade1, button_agilidade2, button_agilidade3, button_agilidade4, button_agilidade5, av.getAgilidade());
+                    doClick(button_confianca1, button_confianca2, button_confianca3, button_confianca4, button_confianca5, av.getConfianca());
+                    doClick(button_transparencia1, button_transparencia2, button_transparencia3, button_transparencia4, button_transparencia5, av.getTransparencia());
+                    doClick(button_cuidado1, button_cuidado2, button_cuidado3, button_cuidado4, button_cuidado5, av.getCuidado());
 
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Avaliacao> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void doClick(final Button button1, final Button button2, final Button button3, final Button button4, final Button button5, int nota) {
+        if (nota == 1) {
+            button1.performClick();
+        } else if (nota == 2) {
+            button2.performClick();
+        } else if (nota == 3) {
+            button3.performClick();
+        } else if (nota == 4) {
+            button4.performClick();
+        } else if (nota == 5) {
+            button5.performClick();
+        }
     }
 }
