@@ -99,6 +99,7 @@ public class EnviarMensagemFragment extends Fragment {
         } else if (op == 1) {
 
         }
+        editText_mensagem.setText("");
     }
 
 }
