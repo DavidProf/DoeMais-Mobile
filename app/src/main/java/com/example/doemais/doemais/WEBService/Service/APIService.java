@@ -16,7 +16,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface APIService {
-    String URL_BASE = "http://192.168.15.4:45455/api/";
+    String URL_BASE = "http://25.71.199.4:45455/api/";
 
     @GET("doador/login")
     Call<Login> doLogin(@Query("email") String email, @Query("senha") String senha);
